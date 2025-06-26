@@ -9,5 +9,6 @@ import java.util.List;
 public interface ProductIngredientRepository extends JpaRepository<ProductIngredient, Integer> {
     List<ProductIngredient> findByProduct_ProductId(Integer productId);
     List<ProductIngredient> findByIngredient_IngredientId(Integer ingredientId);
+    List<ProductIngredient> findByProductId(Integer productId);
 }
 

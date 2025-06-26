@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -59,6 +58,9 @@ public class Order {
 
     @Column(columnDefinition = "TEXT")
     private String notes;
+
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
+    private java.util.List<OrderDetail> orderDetails;
 
     public enum OrderStatus {
         PENDING,
